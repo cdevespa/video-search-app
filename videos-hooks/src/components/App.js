@@ -5,14 +5,13 @@ import VideoDetail from './VideoDetail';
 import useVideos from '../hooks/useVideos';
 
 const App = () => {
-  
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const [videos, search] = useVideos('sphynx cats');
+  const [videos, search] = useVideos('buildings');
 
-  useEffect (() => {
+  useEffect(() => {
     setSelectedVideo(videos[0]);
   }, [videos]);
-  
+
   return (
     <div className="ui container">
       <SearchBar onFormSubmit={search} />
@@ -22,10 +21,7 @@ const App = () => {
             <VideoDetail video={selectedVideo} />
           </div>
           <div className="five wide column">
-            <VideoList 
-            onVideoSelect={setSelectedVideo}
-            videos={videos}
-            />
+            <VideoList onVideoSelect={setSelectedVideo} videos={videos} />
           </div>
         </div>
       </div>
